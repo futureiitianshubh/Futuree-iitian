@@ -1,0 +1,1406 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>NEXT IITIAN - Your Path to IIT</title>
+</head>
+<body style="background:#020617;color:#e5e7eb;font-family:system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;padding:16px">
+<h2>PART 1 / 4 – Copy this into a file named index.html (top of file)</h2>
+<p>After copying all 4 parts into one file, remove everything except the real NEXT IITIAN code between &lt;!DOCTYPE html&gt; and &lt;/html&gt;.</p>
+<hr>
+
+<!-- REAL index.html STARTS BELOW -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NEXT IITIAN - Your Path to IIT</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-color: #00d4ff;
+            --secondary-color: #9d4edd;
+            --dark-bg: #0a0e27;
+            --light-bg: #f5f7fa;
+            --card-dark: #1a1f3a;
+            --card-light: #ffffff;
+            --text-dark: #e0e0e0;
+            --text-light: #1a1a1a;
+            --accent: #ff006e;
+            --success: #00d084;
+        }
+
+        [data-theme="light"] {
+            --primary-color: #0066cc;
+            --secondary-color: #8b3dff;
+            --dark-bg: #ffffff;
+            --light-bg: #f5f7fa;
+            --card-dark: #f9fafb;
+            --card-light: #ffffff;
+            --text-dark: #333333;
+            --text-light: #666666;
+            --accent: #ff006e;
+            --success: #00d084;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: var(--dark-bg);
+            color: var(--text-dark);
+            overflow-x: hidden;
+            transition: background 0.5s ease, color 0.5s ease;
+        }
+
+        .theme-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            border: none;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            box-shadow: 0 8px 32px rgba(0, 212, 255, 0.3);
+        }
+
+        .theme-toggle:hover {
+            transform: scale(1.1) rotate(20deg);
+            box-shadow: 0 12px 48px rgba(0, 212, 255, 0.5);
+        }
+
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            padding: 1.5rem 2rem;
+            background: rgba(10, 14, 39, 0.8);
+            backdrop-filter: blur(10px);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 999;
+            border-bottom: 1px solid rgba(0, 212, 255, 0.1);
+        }
+
+        [data-theme="light"] nav {
+            background: rgba(255, 255, 255, 0.9);
+        }
+
+        .logo {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1.8rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, var(--primary-color), var(--accent));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--text-dark);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+            position: relative;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary-color);
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--primary-color);
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                gap: 1rem;
+                font-size: 0.9rem;
+            }
+            nav {
+                padding: 1rem;
+            }
+            .logo {
+                font-size: 1.3rem;
+            }
+        }
+
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+            padding-top: 80px;
+            background: linear-gradient(135deg, rgba(0, 212, 255, 0.05) 0%, rgba(157, 78, 221, 0.05) 100%);
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(0, 212, 255, 0.2), transparent);
+            border-radius: 50%;
+            top: -100px;
+            right: -100px;
+            animation: float 6s ease-in-out infinite;
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, rgba(157, 78, 221, 0.2), transparent);
+            border-radius: 50%;
+            bottom: -50px;
+            left: -50px;
+            animation: float 8s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(30px); }
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 10;
+            text-align: center;
+            max-width: 900px;
+            animation: slideUpFade 0.8s ease-out;
+        }
+
+        @keyframes slideUpFade {
+            from {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .hero h1 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 4rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            line-height: 1.2;
+        }
+
+        .hero .tagline {
+            font-size: 1.5rem;
+            color: var(--text-dark);
+            margin-bottom: 1.5rem;
+            font-weight: 300;
+        }
+
+        .hero p {
+            font-size: 1.1rem;
+            color: var(--text-light);
+            max-width: 600px;
+            margin: 0 auto 2rem;
+            line-height: 1.6;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1.5rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .cta-btn {
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 50px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            box-shadow: 0 8px 32px rgba(0, 212, 255, 0.3);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 48px rgba(0, 212, 255, 0.5);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--primary-color);
+            border: 2px solid var(--primary-color);
+            box-shadow: inset 0 0 20px rgba(0, 212, 255, 0.1);
+        }
+
+        .btn-secondary:hover {
+            background: rgba(0, 212, 255, 0.1);
+            transform: translateY(-5px);
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            .hero .tagline {
+                font-size: 1.2rem;
+            }
+            .cta-buttons {
+                flex-direction: column;
+            }
+            .cta-btn {
+                width: 100%;
+            }
+        }
+
+        .motivation {
+            padding: 4rem 2rem;
+            background: var(--dark-bg);
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 3rem;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .quotes-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .quote-card {
+            background: linear-gradient(135deg, rgba(0, 212, 255, 0.1), rgba(157, 78, 221, 0.1));
+            border: 1px solid rgba(0, 212, 255, 0.2);
+            border-radius: 15px;
+            padding: 2rem;
+            backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .quote-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+            transition: left 0.5s ease;
+        }
+
+        .quote-card:hover::before {
+            left: 100%;
+        }
+
+        .quote-card:hover {
+            transform: translateY(-10px);
+            border-color: var(--primary-color);
+            box-shadow: 0 12px 48px rgba(0, 212, 255, 0.2);
+        }
+
+        .quote-text {
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+            line-height: 1.6;
+        }
+
+        .quote-author {
+            font-size: 0.9rem;
+            color: var(--text-light);
+            font-style: italic;
+        }
+                .top-iits {
+            padding: 4rem 2rem;
+            background: linear-gradient(135deg, rgba(0, 212, 255, 0.02) 0%, rgba(157, 78, 221, 0.02) 100%);
+        }
+
+        .iits-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .iit-card {
+            background: var(--card-dark);
+            border: 1px solid rgba(0, 212, 255, 0.2);
+            border-radius: 15px;
+            padding: 2rem;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+        }
+
+        [data-theme="light"] .iit-card {
+            background: var(--card-light);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+        }
+
+        .iit-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+        }
+
+        .iit-card:hover {
+            transform: translateY(-10px);
+            border-color: var(--primary-color);
+            box-shadow: 0 12px 48px rgba(0, 212, 255, 0.2);
+        }
+
+        .iit-name {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+        }
+
+        .iit-location {
+            font-size: 0.9rem;
+            color: var(--text-light);
+            margin-bottom: 1rem;
+        }
+
+        .iit-details {
+            display: flex;
+            flex-direction: column;
+            gap: 0.8rem;
+            font-size: 0.95rem;
+            color: var(--text-dark);
+            line-height: 1.6;
+        }
+
+        .iit-detail-row {
+            display: flex;
+            justify-content: space-between;
+            border-bottom: 1px solid rgba(0, 212, 255, 0.1);
+            padding-bottom: 0.8rem;
+        }
+
+        .iit-detail-label {
+            font-weight: 600;
+            color: var(--primary-color);
+        }
+
+        .iit-detail-value {
+            color: var(--text-light);
+        }
+
+        .iit-placement {
+            background: rgba(0, 212, 255, 0.1);
+            border-left: 3px solid var(--primary-color);
+            padding: 1rem;
+            border-radius: 8px;
+            margin-top: 1rem;
+            font-size: 0.9rem;
+        }
+
+        .roadmap {
+            padding: 4rem 2rem;
+            background: var(--dark-bg);
+        }
+
+        .roadmap-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .roadmap-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .roadmap-card {
+            background: linear-gradient(135deg, rgba(0, 212, 255, 0.1), rgba(157, 78, 221, 0.1));
+            border: 1px solid rgba(0, 212, 255, 0.2);
+            border-radius: 15px;
+            padding: 2rem;
+            backdrop-filter: blur(10px);
+        }
+
+        .roadmap-title {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .roadmap-list {
+            list-style: none;
+        }
+
+        .roadmap-list li {
+            padding: 0.7rem 0;
+            padding-left: 1.5rem;
+            position: relative;
+            color: var(--text-dark);
+            line-height: 1.6;
+        }
+
+        .roadmap-list li::before {
+            content: '→';
+            position: absolute;
+            left: 0;
+            color: var(--primary-color);
+            font-weight: bold;
+        }
+
+        .past-questions {
+            padding: 4rem 2rem;
+            background: linear-gradient(135deg, rgba(0, 212, 255, 0.02) 0%, rgba(157, 78, 221, 0.02) 100%);
+        }
+
+        .tabs {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            margin: 2rem 0;
+            flex-wrap: wrap;
+        }
+
+        .tab-btn {
+            padding: 0.8rem 1.5rem;
+            border: 2px solid rgba(0, 212, 255, 0.3);
+            background: transparent;
+            color: var(--text-dark);
+            border-radius: 50px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .tab-btn.active {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            border-color: var(--primary-color);
+        }
+
+        .tab-content {
+            display: none;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .tab-content.active {
+            display: block;
+            animation: fadeIn 0.5s ease;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .years-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .year-card {
+            background: var(--card-dark);
+            border: 1px solid rgba(0, 212, 255, 0.2);
+            border-radius: 10px;
+            padding: 1.5rem;
+            transition: all 0.3s ease;
+        }
+
+        [data-theme="light"] .year-card {
+            background: var(--card-light);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+        }
+
+        .year-card:hover {
+            border-color: var(--primary-color);
+            transform: translateY(-5px);
+        }
+
+        .year-title {
+            font-weight: 700;
+            color: var(--primary-color);
+            margin-bottom: 0.8rem;
+        }
+
+        .year-link {
+            display: block;
+            padding: 0.5rem 0;
+            color: var(--text-light);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .year-link:hover {
+            color: var(--primary-color);
+        }
+
+        .mindset {
+            padding: 4rem 2rem;
+            background: var(--dark-bg);
+        }
+
+        .mindset-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .mindset-card {
+            background: linear-gradient(135deg, rgba(0, 212, 255, 0.1), rgba(157, 78, 221, 0.1));
+            border: 1px solid rgba(0, 212, 255, 0.2);
+            border-radius: 15px;
+            padding: 2rem;
+            backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
+        }
+
+        .mindset-card:hover {
+            border-color: var(--primary-color);
+            transform: translateY(-5px);
+            box-shadow: 0 12px 48px rgba(0, 212, 255, 0.2);
+        }
+
+        .mindset-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .mindset-title {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            margin-bottom: 0.8rem;
+        }
+
+        .mindset-text {
+            font-size: 0.95rem;
+            color: var(--text-dark);
+            line-height: 1.6;
+        }
+
+        footer {
+            background: var(--card-dark);
+            padding: 2rem;
+            text-align: center;
+            border-top: 1px solid rgba(0, 212, 255, 0.1);
+        }
+
+        [data-theme="light"] footer {
+            background: #f5f7fa;
+        }
+
+        footer p {
+            color: var(--text-light);
+            font-size: 1rem;
+        }
+
+        footer a {
+            color: var(--primary-color);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        footer a:hover {
+            color: var(--secondary-color);
+        }
+
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: var(--dark-bg);
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            border-radius: 5px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--primary-color);
+        }
+
+        @media (max-width: 768px) {
+            .section-title {
+                font-size: 1.8rem;
+            }
+
+            .quotes-container,
+            .iits-container,
+            .roadmap-grid,
+            .years-grid,
+            .mindset-grid {
+                grid-template-columns: 1fr;
+            }
+
+            nav {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .nav-links {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+               }
+    </style>
+</head>
+<body>
+    <button class="theme-toggle" id="themeToggle">🌙</button>
+
+    <nav>
+        <div class="logo">NEXT IITIAN</div>
+        <ul class="nav-links">
+            <li><a href="#hero">Home</a></li>
+            <li><a href="#motivation">Motivation</a></li>
+            <li><a href="#iits">IITs</a></li>
+            <li><a href="#roadmap">Roadmap</a></li>
+            <li><a href="#questions">Questions</a></li>
+            <li><a href="#mindset">Mindset</a></li>
+        </ul>
+    </nav>
+
+    <section class="hero" id="hero">
+        <div class="hero-content">
+            <h1>NEXT IITIAN</h1>
+            <p class="tagline">From Class 9 to IIT — One Roadmap, One Dream</p>
+            <p>Your complete guide to conquering the IIT JEE exam. Master concepts, ace mock tests, and secure your seat at India's premier engineering institutes. Success is not a destination—it's a journey of consistent effort and unwavering determination.</p>
+            <div class="cta-buttons">
+                <button class="cta-btn btn-primary" onclick="document.getElementById('roadmap').scrollIntoView({behavior: 'smooth'})">Explore Roadmap</button>
+                <button class="cta-btn btn-secondary" onclick="document.getElementById('iits').scrollIntoView({behavior: 'smooth'})">Top IITs</button>
+                <button class="cta-btn btn-primary" onclick="document.getElementById('motivation').scrollIntoView({behavior: 'smooth'})">Get Motivated</button>
+            </div>
+        </div>
+    </section>
+
+    <section class="motivation" id="motivation">
+        <h2 class="section-title">Fuel Your Fire 🔥</h2>
+        <div class="quotes-container">
+            <div class="quote-card">
+                <div class="quote-text">"Consistency is not about motivation. It's about discipline and showing up even when you don't feel like it."</div>
+                <div class="quote-author">— Success Principle</div>
+            </div>
+            <div class="quote-card">
+                <div class="quote-text">"Failure is not the opposite of success. It's a stepping stone towards it. Every wrong attempt teaches you something."</div>
+                <div class="quote-author">— IIT Achiever's Wisdom</div>
+            </div>
+            <div class="quote-card">
+                <div class="quote-text">"Your competitors are sleeping while you are studying. Your future self will thank you."</div>
+                <div class="quote-author">— JEE Aspirants' Mantra</div>
+            </div>
+            <div class="quote-card">
+                <div class="quote-text">"Pain is temporary. Success is permanent. Choose the path that leads to your dreams."</div>
+                <div class="quote-author">— Motivation for Winners</div>
+            </div>
+            <div class="quote-card">
+                <div class="quote-text">"Small consistent efforts compound into extraordinary results. Trust the process and believe in yourself."</div>
+                <div class="quote-author">— The Power of Persistence</div>
+            </div>
+            <div class="quote-card">
+                <div class="quote-text">"Hard work beats talent when talent isn't willing to work hard. You have both—now use them wisely."</div>
+                <div class="quote-author">— Champion's Truth</div>
+            </div>
+        </div>
+    </section>
+       <section class="top-iits" id="iits">
+        <h2 class="section-title">India's Finest Engineering Institutes 🏆</h2>
+        <div class="iits-container">
+            <div class="iit-card">
+                <div class="iit-name">IIT Bombay</div>
+                <div class="iit-location">Mumbai, Maharashtra | Established: 1958</div>
+                <div class="iit-details">
+                    <div class="iit-detail-row">
+                        <span class="iit-detail-label">Campus:</span>
+                        <span class="iit-detail-value">Powai, North Mumbai</span>
+                    </div>
+                    <div class="iit-detail-row">
+                        <span class="iit-detail-label">Academic Culture:</span>
+                        <span class="iit-detail-value">Research-driven, innovation hub</span>
+                    </div>
+                    <div class="iit-detail-row">
+                        <span class="iit-detail-label">Average Package:</span>
+                        <span class="iit-detail-value">₹20-25 LPA</span>
+                    </div>
+                    <div class="iit-detail-row">
+                        <span class="iit-detail-label">Highest Package:</span>
+                        <span class="iit-detail-value">₹85+ LPA</span>
+                    </div>
+                </div>
+                <div class="iit-placement">
+                    <strong>Top Recruiters:</strong> Google, Microsoft, Goldman Sachs, McKinsey, Samsung, Flipkart
+                </div>
+                <p style="margin-top: 1rem; color: var(--text-light); font-size: 0.9rem;">Vibrant campus life, excellent faculty, strong alumni network. The academic rigor is matched with a lively student culture that celebrates innovation and entrepreneurship.</p>
+            </div>
+
+            <div class="iit-card">
+                <div class="iit-name">IIT Delhi</div>
+                <div class="iit-location">New Delhi, Delhi | Established: 1961</div>
+                <div class="iit-details">
+                    <div class="iit-detail-row">
+                        <span class="iit-detail-label">Campus:</span>
+                        <span class="iit-detail-value">Hauz Khas, Delhi</span>
+                    </div>
+                    <div class="iit-detail-row">
+                        <span class="iit-detail-label">Academic Culture:</span>
+                        <span class="iit-detail-value">Excellence in core engineering</span>
+                    </div>
+                    <div class="iit-detail-row">
+                        <span class="iit-detail-label">Average Package:</span>
+                        <span class="iit-detail-value">₹19-22 LPA</span>
+                    </div>
+                    <div class="iit-detail-row">
+                        <span class="iit-detail-label">Highest Package:</span>
+                        <span class="iit-detail-value">₹80+ LPA</span>
+                    </div>
+                </div>
+                <div class="iit-placement">
+                    <strong>Top Recruiters:</strong> Amazon, Microsoft, Oracle, Tower Research, Qualcomm, Cisco
+                </div>
+                <p style="margin-top: 1rem; color: var(--text-light); font-size: 0.9rem;">Perfect blend of academics and city life. Located in the capital, students get exposure to tech startups and multinational corporations. Strong placements in software and finance sectors.</p>
+            </div>
+
+            <div class="iit-card">
+                <div class="iit-name">IIT Madras</div>
+                <div class="iit-location">Chennai, Tamil Nadu | Established: 1959</div>
+                <div class="iit-details">
+                    <div class="iit-detail-row">
+                        <span class="iit-detail-label">Campus:</span>
+                        <span class="iit-detail-value">Guindy, Chennai</span>
+                    </div>
+                    <div class="iit-detail-row">
+                        <span class="iit-detail-label">Academic Culture:</span>
+                        <span class="iit-detail-value">Research and innovation focused</span>
+                    </div>
+                    <div class="iit-detail-row">
+                        <span class="iit-detail-label">Average Package:</span>
+                        <span class="iit-detail-value">₹18-21 LPA</span>
+                    </div>
+                    <div class="iit-detail-row">
+                        <span class="iit-detail-label">Highest Package:</span>
+                        <span class="iit-detail-value">₹75+ LPA</span>
+                    </div>
+                </div>
+                <div class="iit-placement">
+                    <strong>Top Recruiters:</strong> Infosys, TCS, Cognizant, Deloitte, Ford, Airbus
+                </div>
+                <p style="margin-top: 1rem; color: var(--text-light); font-size: 0.9rem;">Outstanding faculty with world-class research facilities. Beautiful campus with disciplined academic environment. Strong connections with international institutions for research collaborations.</p>
+            </div>
+
+            <div class="iit-card">
+                <div class="iit-name">IIT Kanpur</div>
+                <div class="iit-location">Kanpur, Uttar Pradesh | Established: 1959</div>
+                <div class="iit-details">
+                    <div class="iit-detail-row">
+                        <span class="iit-detail-label">Campus:</span>
+                        <span class="iit-detail-value">Kalyanpur, Kanpur</span>
+                    </div>
+                    <div class="iit-detail-row">
+                        <span class="iit-detail-label">Academic Culture:</span>
+                        <span class="iit-detail-value">Highly rigorous and competitive</span>
+                    </div>
+                    <div class="iit-detail-row">
+                        <span class="iit-detail-label">Average Package:</span>
+                        <span class="iit-detail-value">₹18-20 LPA</span>
+                    </div>
+                    <div class="iit-detail-row">
+                        <span class="iit-detail-label">Highest Package:</span>
+                        <span class="iit-detail-value">₹70+ LPA</span>
+                    </div>
+                </div>
+                <div class="iit-placement">
+                    <strong>Top Recruiters:</strong> Boeing, General Electric, Shell, NTPC, Bharat Petroleum, ABB
+                </div>
+                <p style="margin-top: 1rem; color: var(--text-light); font-size: 0.9rem;">Renowned for producing industry leaders and entrepreneurs. Rigorous curriculum develops problem-solving skills. Strong focus on core engineering with excellent faculty mentorship.</p>
+            </div>
+
+            <div class="iit-card">
+                <div class="iit-name">IIT Kharagpur</div>
+                <div class="iit-location">Kharagpur, West Bengal | Established: 1951</div>
+                <div class="iit-details">
+                    <div class="iit-detail-row">
+                        <span class="iit-detail-label">Campus:</span>
+                        <span class="iit-detail-value">Kharagpur City</span>
+                    </div>
+                    <div class="iit-detail-row">
+                        <span class="iit-detail-label">Academic Culture:</span>
+                        <span class="iit-detail-value">India's first IIT, legacy of excellence</span>
+                    </div>
+                    <div class="iit-detail-row">
+                        <span class="iit-detail-label">Average Package:</span>
+                        <span class="iit-detail-value">₹18-21 LPA</span>
+                    </div>
+                    <div class="iit-detail-row">
+                        <span class="iit-detail-label">Highest Package:</span>
+                        <span class="iit-detail-value">₹72+ LPA</span>
+                    </div>
+                </div>
+                <div class="iit-placement">
+                    <strong>Top Recruiters:</strong> Tata Steel, Reliance, Siemens, Mahindra & Mahindra, L&T, Accenture
+                </div>
+                <p style="margin-top: 1rem; color: var(--text-light); font-size: 0.9rem;">Asia's first IIT with a legacy spanning 7+ decades. Sprawling campus of 1200+ acres. Strong placements across core sectors and IT. Vibrant campus life with numerous cultural events.</p>
+            </div>
+
+            <div class="iit-card">
+                <div class="iit-name">IIT Roorkee</div>
+                <div class="iit-location">Roorkee, Uttarakhand | Established: 1854</div>
+                <div class="iit-details">
+                    <div class="iit-detail-row">
+                        <span class="iit-detail-label">Campus:</span>
+                        <span class="iit-detail-value">Roorkee City</span>
+                    </div>
+                    <div class="iit-detail-row">
+                        <span class="iit-detail-label">Academic Culture:</span>
+                        <span class="iit-detail-value">Focus on Civil Engineering legacy</span>
+                    </div>
+                    <div class="iit-detail-row">
+                        <span class="iit-detail-label">Average Package:</span>
+                        <span class="iit-detail-value">₹17-19 LPA</span>
+                    </div>
+                    <div class="iit-detail-row">
+                        <span class="iit-detail-label">Highest Package:</span>
+                        <span class="iit-detail-value">₹68+ LPA</span>
+                    </div>
+                </div>
+                <div class="iit-placement">
+                    <strong>Top Recruiters:</strong> HCL, Wipro, Accenture, IBM, Cognizant, L&T
+                </div>
+                <p style="margin-top: 1rem; color: var(--text-light); font-size: 0.9rem;">India's oldest technical institution (Thomson College of Engineering). Serene campus in Himalayan foothills. Excellent faculty and unique placement opportunities. Strong in civil, mechanical, and electrical engineering.</p>
+            </div>
+
+            <div class="iit-card">
+                <div class="iit-name">IIT Guwahati</div>
+                <div class="iit-location">Guwahati, Assam | Established: 1994</div>
+                <div class="iit-details">
+                    <div class="iit-detail-row">
+                        <span class="iit-detail-label">Campus:</span>
+                        <span class="iit-detail-value">North Guwahati</span>
+                    </div>
+                    <div class="iit-detail-row">
+                        <span class="iit-detail-label">Academic Culture:</span>
+                        <span class="iit-detail-value">Rising hub for innovation</span>
+                    </div>
+                    <div class="iit-detail-row">
+                        <span class="iit-detail-label">Average Package:</span>
+                        <span class="iit-detail-value">₹15-18 LPA</span>
+                    </div>
+                    <div class="iit-detail-row">
+                        <span class="iit-detail-label">Highest Package:</span>
+                        <span class="iit-detail-value">₹65+ LPA</span>
+                    </div>
+                </div>
+                <div class="iit-placement">
+                    <strong>Top Recruiters:</strong> TCS, Infosys, Capgemini, Morgan Stanley, Directi
+                </div>
+                <p style="margin-top: 1rem; color: var(--text-light); font-size: 0.9rem;">Fastest-growing IIT with modern infrastructure. Beautiful campus on the banks of Brahmaputra. Rising star with improving placements. Strong in IT and software domain placements.</p>
+            </div>
+
+            <div class="iit-card">
+                <div class="iit-name">IIT Hyderabad</div>
+                <div class="iit-location">Hyderabad, Telangana | Established: 2008</div>
+                <div class="iit-details">
+                    <div class="iit-detail-row">
+                        <span class="iit-detail-label">Campus:</span>
+                        <span class="iit-detail-value">Kandi, Sangareddy</span>
+                    </div>
+                    <div class="iit-detail-row">
+                        <span class="iit-detail-label">Academic Culture:</span>
+                        <span class="iit-detail-value">Tech-entrepreneurship hub</span>
+                    </div>
+                    <div class="iit-detail-row">
+                        <span class="iit-detail-label">Average Package:</span>
+                        <span class="iit-detail-value">₹16-19 LPA</span>
+                    </div>
+                    <div class="iit-detail-row">
+                        <span class="iit-detail-label">Highest Package:</span>
+                        <span class="iit-detail-value">₹70+ LPA</span>
+                    </div>
+                </div>
+                <div class="iit-placement">
+                    <strong>Top Recruiters:</strong> Google, Facebook, Amazon, Microsoft, Flipkart, Swiggy
+                </div>
+                <p style="margin-top: 1rem; color: var(--text-light); font-size: 0.9rem;">Newest IIT in Hyderabad's thriving tech ecosystem. State-of-the-art facilities and modern curriculum. Strong startup culture and entrepreneurship ecosystem. Growing placements with tech giants.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="roadmap" id="roadmap">
+        <h2 class="section-title">Your IIT Roadmap 🚀</h2>
+        <div class="roadmap-container">
+            <div class="roadmap-grid">
+                <div class="roadmap-card">
+                    <div class="roadmap-title">📚 Class 9: Foundation Phase</div>
+                    <ul class="roadmap-list">
+                        <li>Master NCERT concepts thoroughly</li>
+                        <li>Build strong fundamentals in Science & Math</li>
+                        <li>Start solving practice problems consistently</li>
+                        <li>Participate in Science Olympiads</li>
+                        <li>Develop problem-solving skills gradually</li>
+                        <li>Maintain 90%+ in board exams</li>
+                        <li>Read books beyond syllabus for curiosity</li>
+                        <li>Build discipline in study habits</li>
+                    </ul>
+                </div>
+
+                <div class="roadmap-card">
+                    <div class="roadmap-title">🎯 Class 10: Balance & Excellence</div>
+                    <ul class="roadmap-list">
+                        <li>Complete board syllabus with depth</li>
+                        <li>Aim for 95%+ in board exams</li>
+                        <li>Start light JEE preparation basics</li>
+                        <li>Physics: Focus on laws and applications</li>
+                        <li>Chemistry: Memorize + understand concepts</li>
+                        <li>Math: Master problem-solving techniques</li>
+                        <li>Attempt mock tests and sample papers</li>
+                        <li>Join coaching if needed (guidance)</li>
+                    </ul>
+                </div>
+
+                <div class="roadmap-card">
+                    <div class="roadmap-title">⚡ Class 11: Serious Mode</div>
+                    <ul class="roadmap-list">
+                        <li>Start formal JEE Main & Advanced prep</li>
+                        <li>Study 4-5 hours daily after school</li>
+                        <li>Physics: Mechanics, Thermodynamics focus</li>
+                        <li>Chemistry: Organic, Inorganic, Physical</li>
+                        <li>Math: Calculus, Algebra, Trigonometry</li>
+                        <li>Solve previous year papers (10+ years)</li>
+                        <li>Take full mock tests monthly</li>
+                        <li>Maintain consistency over motivation</li>
+                    </ul>
+                </div>
+
+                <div class="roadmap-card">
+                    <div class="roadmap-title">💪 Class 12: Peak Performance</div>
+                    <ul class="roadmap-list">
+                        <li>Balance board exams + JEE prep equally</li>
+                        <li>Study 5-6 hours for JEE daily</li>
+                        <li>Revise all concepts thoroughly</li>
+                        <li>Take mock tests weekly</li>
+                        <li>Analyze weak areas and improve</li>
+                        <li>Score 90%+ in board exams</li>
+                        <li>Manage stress and mental health</li>
+                        <li>Appear in JEE Main (January & April)</li>
+                    </ul>
+                </div>
+              
+                                <div class="roadmap-card">
+                    <div class="roadmap-title">📖 Subject-Wise Strategy</div>
+                    <ul class="roadmap-list">
+                        <li><strong>Physics:</strong> Understand principles, apply to problems</li>
+                        <li><strong>Chemistry:</strong> Remember reactions, memorize series</li>
+                        <li><strong>Math:</strong> Master formulas, practice 100+ questions</li>
+                        <li>Use multiple books (HC Verma, MS Chauhan, RD Sharma)</li>
+                        <li>Watch YouTube explanations for doubts</li>
+                        <li>Create formula sheets and notes</li>
+                        <li>Revise weekly, test monthly</li>
+                    </ul>
+                </div>
+
+                <div class="roadmap-card">
+                    <div class="roadmap-title">🧠 Mindset & Discipline</div>
+                    <ul class="roadmap-list">
+                        <li>Wake up at 5-6 AM daily (no excuses)</li>
+                        <li>Study in chunks of 50-60 minutes</li>
+                        <li>Take 10-15 minute breaks between sessions</li>
+                        <li>Minimize phone/social media distractions</li>
+                        <li>Sleep 7-8 hours for brain recovery</li>
+                        <li>Eat healthy and exercise 30 mins daily</li>
+                        <li>Believe in your preparation journey</li>
+                        <li>Success = Hard Work + Smart Work + Time</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+        <section class="past-questions" id="questions">
+        <h2 class="section-title">IIT JEE Previous Years (Last 10 Years) 📋</h2>
+        <div class="tabs">
+            <button class="tab-btn active" onclick="switchTab(event, 'physics')">Physics</button>
+            <button class="tab-btn" onclick="switchTab(event, 'chemistry')">Chemistry</button>
+            <button class="tab-btn" onclick="switchTab(event, 'math')">Mathematics</button>
+        </div>
+
+        <div class="tab-content active" id="physics">
+            <div class="years-grid">
+                <div class="year-card">
+                    <div class="year-title">2024</div>
+                    <a href="#" class="year-link">→ JEE Main Physics 2024</a>
+                    <a href="#" class="year-link">→ JEE Advanced Physics 2024</a>
+                </div>
+                <div class="year-card">
+                    <div class="year-title">2023</div>
+                    <a href="#" class="year-link">→ JEE Main Physics 2023</a>
+                    <a href="#" class="year-link">→ JEE Advanced Physics 2023</a>
+                </div>
+                <div class="year-card">
+                    <div class="year-title">2022</div>
+                    <a href="#" class="year-link">→ JEE Main Physics 2022</a>
+                    <a href="#" class="year-link">→ JEE Advanced Physics 2022</a>
+                </div>
+                <div class="year-card">
+                    <div class="year-title">2021</div>
+                    <a href="#" class="year-link">→ JEE Main Physics 2021</a>
+                    <a href="#" class="year-link">→ JEE Advanced Physics 2021</a>
+                </div>
+                <div class="year-card">
+                    <div class="year-title">2020</div>
+                    <a href="#" class="year-link">→ JEE Main Physics 2020</a>
+                    <a href="#" class="year-link">→ JEE Advanced Physics 2020</a>
+                </div>
+                <div class="year-card">
+                    <div class="year-title">2019</div>
+                    <a href="#" class="year-link">→ JEE Main Physics 2019</a>
+                    <a href="#" class="year-link">→ JEE Advanced Physics 2019</a>
+                </div>
+                <div class="year-card">
+                    <div class="year-title">2018</div>
+                    <a href="#" class="year-link">→ JEE Main Physics 2018</a>
+                    <a href="#" class="year-link">→ JEE Advanced Physics 2018</a>
+                </div>
+                <div class="year-card">
+                    <div class="year-title">2017</div>
+                    <a href="#" class="year-link">→ JEE Main Physics 2017</a>
+                    <a href="#" class="year-link">→ JEE Advanced Physics 2017</a>
+                </div>
+                <div class="year-card">
+                    <div class="year-title">2016</div>
+                    <a href="#" class="year-link">→ JEE Main Physics 2016</a>
+                    <a href="#" class="year-link">→ JEE Advanced Physics 2016</a>
+                </div>
+                <div class="year-card">
+                    <div class="year-title">2015</div>
+                    <a href="#" class="year-link">→ JEE Main Physics 2015</a>
+                    <a href="#" class="year-link">→ JEE Advanced Physics 2015</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="tab-content" id="chemistry">
+            <div class="years-grid">
+                <div class="year-card">
+                    <div class="year-title">2024</div>
+                    <a href="#" class="year-link">→ JEE Main Chemistry 2024</a>
+                    <a href="#" class="year-link">→ JEE Advanced Chemistry 2024</a>
+                </div>
+                <div class="year-card">
+                    <div class="year-title">2023</div>
+                    <a href="#" class="year-link">→ JEE Main Chemistry 2023</a>
+                    <a href="#" class="year-link">→ JEE Advanced Chemistry 2023</a>
+                </div>
+                <div class="year-card">
+                    <div class="year-title">2022</div>
+                    <a href="#" class="year-link">→ JEE Main Chemistry 2022</a>
+                    <a href="#" class="year-link">→ JEE Advanced Chemistry 2022</a>
+                </div>
+                <div class="year-card">
+                    <div class="year-title">2021</div>
+                    <a href="#" class="year-link">→ JEE Main Chemistry 2021</a>
+                    <a href="#" class="year-link">→ JEE Advanced Chemistry 2021</a>
+                </div>
+                <div class="year-card">
+                    <div class="year-title">2020</div>
+                    <a href="#" class="year-link">→ JEE Main Chemistry 2020</a>
+                    <a href="#" class="year-link">→ JEE Advanced Chemistry 2020</a>
+                </div>
+                <div class="year-card">
+                    <div class="year-title">2019</div>
+                    <a href="#" class="year-link">→ JEE Main Chemistry 2019</a>
+                    <a href="#" class="year-link">→ JEE Advanced Chemistry 2019</a>
+                </div>
+                <div class="year-card">
+                    <div class="year-title">2018</div>
+                    <a href="#" class="year-link">→ JEE Main Chemistry 2018</a>
+                    <a href="#" class="year-link">→ JEE Advanced Chemistry 2018</a>
+                </div>
+                <div class="year-card">
+                    <div class="year-title">2017</div>
+                    <a href="#" class="year-link">→ JEE Main Chemistry 2017</a>
+                    <a href="#" class="year-link">→ JEE Advanced Chemistry 2017</a>
+                </div>
+                <div class="year-card">
+                    <div class="year-title">2016</div>
+                    <a href="#" class="year-link">→ JEE Main Chemistry 2016</a>
+                    <a href="#" class="year-link">→ JEE Advanced Chemistry 2016</a>
+                </div>
+                <div class="year-card">
+                    <div class="year-title">2015</div>
+                    <a href="#" class="year-link">→ JEE Main Chemistry 2015</a>
+                    <a href="#" class="year-link">→ JEE Advanced Chemistry 2015</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="tab-content" id="math">
+            <div class="years-grid">
+                <div class="year-card">
+                    <div class="year-title">2024</div>
+                    <a href="#" class="year-link">→ JEE Main Math 2024</a>
+                    <a href="#" class="year-link">→ JEE Advanced Math 2024</a>
+                </div>
+                <div class="year-card">
+                    <div class="year-title">2023</div>
+                    <a href="#" class="year-link">→ JEE Main Math 2023</a>
+                    <a href="#" class="year-link">→ JEE Advanced Math 2023</a>
+                </div>
+                <div class="year-card">
+                    <div class="year-title">2022</div>
+                    <a href="#" class="year-link">→ JEE Main Math 2022</a>
+                    <a href="#" class="year-link">→ JEE Advanced Math 2022</a>
+                </div>
+                <div class="year-card">
+                    <div class="year-title">2021</div>
+                    <a href="#" class="year-link">→ JEE Main Math 2021</a>
+                    <a href="#" class="year-link">→ JEE Advanced Math 2021</a>
+                </div>
+                <div class="year-card">
+                    <div class="year-title">2020</div>
+                    <a href="#" class="year-link">→ JEE Main Math 2020</a>
+                    <a href="#" class="year-link">→ JEE Advanced Math 2020</a>
+                </div>
+                <div class="year-card">
+                    <div class="year-title">2019</div>
+                    <a href="#" class="year-link">→ JEE Main Math 2019</a>
+                    <a href="#" class="year-link">→ JEE Advanced Math 2019</a>
+                </div>
+                <div class="year-card">
+                    <div class="year-title">2018</div>
+                    <a href="#" class="year-link">→ JEE Main Math 2018</a>
+                    <a href="#" class="year-link">→ JEE Advanced Math 2018</a>
+                </div>
+                <div class="year-card">
+                    <div class="year-title">2017</div>
+                    <a href="#" class="year-link">→ JEE Main Math 2017</a>
+                    <a href="#" class="year-link">→ JEE Advanced Math 2017</a>
+                </div>
+                <div class="year-card">
+                    <div class="year-title">2016</div>
+                    <a href="#" class="year-link">→ JEE Main Math 2016</a>
+                    <a href="#" class="year-link">→ JEE Advanced Math 2016</a>
+                </div>
+                <div class="year-card">
+                    <div class="year-title">2015</div>
+                    <a href="#" class="year-link">→ JEE Main Math 2015</a>
+                    <a href="#" class="year-link">→ JEE Advanced Math 2015</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="mindset" id="mindset">
+        <h2 class="section-title">Study Mindset & Discipline 🧠</h2>
+        <div class="mindset-grid">
+            <div class="mindset-card">
+                <div class="mindset-icon">📅</div>
+                <div class="mindset-title">Daily Routine</div>
+                <div class="mindset-text">
+                    <strong>5:30 AM:</strong> Wake up<br>
+                    <strong>6:00-7:30 AM:</strong> Exercise/Yoga<br>
+                    <strong>8:00-12:30 PM:</strong> School<br>
+                    <strong>3:00-7:00 PM:</strong> Coaching/Study<br>
+                    <strong>7:00-8:00 PM:</strong> Dinner & Break<br>
+                    <strong>8:00-10:30 PM:</strong> Self-study<br>
+                    <strong>10:30 PM:</strong> Sleep
+                </div>
+            </div>
+
+            <div class="mindset-card">
+                <div class="mindset-icon">💪</div>
+                <div class="mindset-title">Consistency Over Motivation</div>
+                <div class="mindset-text">
+                    Motivation is temporary. Consistency is eternal. Show up every single day, even when you don't feel like it. Your future self will thank you for the discipline you build today. Small daily efforts compound into extraordinary results over time.
+                </div>
+            </div>
+
+            <div class="mindset-card">
+                <div class="mindset-icon">🌟</div>
+                <div class="mindset-title">Mental Health & Burnout</div>
+                <div class="mindset-text">
+                    It's okay to feel stressed. Take 10-minute breaks every hour. Exercise releases stress hormones. Talk to friends and family. Sleep is not laziness—it's recovery. If burnout hits, step back for a day, but never quit. Your mental health matters more than any exam.
+                </div>
+            </div>
+
+            <div class="mindset-card">
+                <div class="mindset-icon">🎯</div>
+                <div class="mindset-title">Long-Term Thinking</div>
+                <div class="mindset-text">
+                    Don't chase short-term wins. Build skills for life. Understand concepts deeply, not superficially. A 2-hour quality study beats 8 hours of distracted study. Think in terms of weeks and months, not days. The IIT exam is just one milestone in your long journey.
+                </div>
+            </div>
+
+            <div class="mindset-card">
+                <div class="mindset-icon">🚫</div>
+                <div class="mindset-title">Mistakes to Avoid</div>
+                <div class="mindset-text">
+                    <strong>❌ Phone addiction:</strong> Kills focus<br>
+                    <strong>❌ Procrastination:</strong> Compounds failure<br>
+                    <strong>❌ Comparing with others:</strong> Kills confidence<br>
+                    <strong>❌ Skipping basics:</strong> Creates gaps<br>
+                    <strong>❌ Lack of sleep:</strong> Damages brain<br>
+                    <strong>✅ Be aware. Avoid.</strong>
+                </div>
+            </div>
+
+            <div class="mindset-card">
+                <div class="mindset-icon">🏆</div>
+                <div class="mindset-title">Success Formula</div>
+                <div class="mindset-text">
+                    <strong>Hard Work</strong> + <strong>Smart Work</strong> + <strong>Consistency</strong> + <strong>Time</strong> + <strong>Patience</strong> = Success
+                    <br><br>
+                    You've got this. Believe in your potential. Every successful IITian started exactly where you are. The difference? They never gave up.
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>Created with ❤️‍🩹 by Shubham | © <span id="year"></span> NEXT IITIAN. All rights reserved.</p>
+    </footer>
+
+    <script>
+        const themeToggle = document.getElementById('themeToggle');
+        const html = document.documentElement;
+        const savedTheme = localStorage.getItem('theme') || 'dark';
+        html.setAttribute('data-theme', savedTheme);
+        updateThemeToggle(savedTheme);
+
+        themeToggle.addEventListener('click', () => {
+            const currentTheme = html.getAttribute('data-theme');
+            const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+            html.setAttribute('data-theme', newTheme);
+            localStorage.setItem('theme', newTheme);
+            updateThemeToggle(newTheme);
+        });
+
+        function updateThemeToggle(theme) {
+            themeToggle.textContent = theme === 'dark' ? '☀️' : '🌙';
+        }
+
+        function switchTab(event, tabName) {
+            const contents = document.querySelectorAll('.tab-content');
+            contents.forEach(content => content.classList.remove('active'));
+            const buttons = document.querySelectorAll('.tab-btn');
+            buttons.forEach(btn => btn.classList.remove('active'));
+            document.getElementById(tabName).classList.add('active');
+            event.target.classList.add('active');
+        }
+
+        document.getElementById('year').textContent = new Date().getFullYear();
+
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.animation = 'slideUpFade 0.8s ease-out';
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.quote-card, .iit-card, .roadmap-card
+        .mindset-card').forEach(el => {
+            observer.observe(el);
+        });
+    </script>
+</body>
+</html>  
+                  
